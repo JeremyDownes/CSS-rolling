@@ -5,6 +5,8 @@ body {
   background-color: lightblue;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 
@@ -22,7 +24,7 @@ body {
 }
 
 .grass {
-  height: 100px;
+  height: 14vh;
   width: 100%;
   position: absolute;
   bottom: 0px;
@@ -30,30 +32,45 @@ body {
 }
 
 .ball {
-  height: 50px;
-  width: 50px;
+  z-index: 1;
+  height: 4vw;
+  width: 4vw;
   border-radius: 50%;
   position: absolute;
-  bottom: 80px;
-  left: 25%;
+  bottom: 10vh;
   background-color: red;
   box-shadow: 5px -5px 15px 5px rgba(0,0,0,0.75) inset;
   animation: rolling 8s linear alternate infinite;
 }
 
+.shadow {
+  height: 2vw;
+  width: 4vw;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8vh;
+  background-color: rgba(0,0,0,0.5);
+  animation: shadow 8s linear alternate infinite;
+}
+
+@keyframes shadow {
+  from { left: -2vw; }
+  to { left: 98vw; }
+}
+
 @keyframes pulsing {
-  from { box-shadow: 0px 0px 25px 10px rgba(255,255,0,0.5) inset;}
-  to {  box-shadow: 0px 0px 25px 40px rgba(255,255,0,0.5) inset;}  
+  from { box-shadow: 0px 0px 25px 10px rgba(255,255,0,0.5) inset; }
+  to {  box-shadow: 0px 0px 25px 40px rgba(255,255,0,0.5) inset; }  
 }
 
 @keyframes rolling {
   from {
-    left: 15%;
-    box-shadow: 5px -5px 15px 5px rgba(0,0,0,0.75) inset;
+    left: 0vw;
+    box-shadow: .4vw -.4vw 1vw .3vw rgba(0,0,0,0.75) inset;
   }
   to {
-    left: 85%;
-    box-shadow: -5px -5px 15px 5px rgba(0,0,0,0.75) inset;
+    left: 96vw;
+    box-shadow: -.4vw -.4vw 1vw .3vw rgba(0,0,0,0.75) inset;
   }
 }
 
@@ -67,6 +84,8 @@ body {
 <div class="grass"></div>
 
 <div class="ball"></div>
+
+<div class="shadow"></div>
  
 </body>
 </html>
